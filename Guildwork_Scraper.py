@@ -14,8 +14,12 @@ class GuildworkScraper:
     guildwork_domain = 'ascendedfc.guildwork.com'
     guildwork_url = 'http://%s/recruitment' % guildwork_domain
     guildwork_login = 'https://%s/login' % guildwork_domain
-    bot_email = 'ccb8511f@opayq.com'
-    bot_password = 'bjpH97rkanmJ'
+
+    botfile = open('Bot.txt').read()
+    botsoup = BeautifulSoup(botfile, 'lxml')
+    
+    bot_email = botsoup.email.string
+    bot_password = botsoup.password.string
 
     '''
     Returns a dictionary to represent Members join date using Chrome.
